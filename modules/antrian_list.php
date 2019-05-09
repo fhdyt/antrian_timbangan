@@ -14,7 +14,14 @@ else{
 while($row = mysqli_fetch_array($result))
 {
 $no++;
-	echo "<tr>";
+if ($row['TIMBANG_STATUS'] == 'A')
+{
+  $class = "success";
+}
+else {
+  $class="";
+}
+	echo "<tr class='".$class."'>";
 	echo "<td>".$no."</td>";
 
     echo "<td>".$row['NO_ANTRIAN']."</td>";
@@ -23,6 +30,7 @@ $no++;
     echo "<td>".$row['TANGGAL']."</td>";
     echo "<td>".$row['TONASE']."</td>";
     echo "<td>".$row['HOPER_TIMBANGAN']."</td>";
+    echo "<td><a class='btn btn-success btn-sm' onclick='selesai_timbang(".$row['ID'].")' ID_TIMBANG='".$row['ID']."'><span class='glyphicon glyphicon-check' aria-hidden='true'></span></td>";
     echo "</tr>";
 }
 

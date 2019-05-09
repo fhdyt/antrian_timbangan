@@ -39,4 +39,29 @@
     });
   }
   $(function(){ antrian_list(); });
+
+  function selesai_timbang(id){
+    var data = "ID="+id+"";
+    $.ajax({
+      type : 'POST',
+      url:'modules/selesai_timbang.php',
+      data : data,
+      success:function(response)
+      {
+         if(response == "no_data"){
+           alert("Gagal");
+         }
+         else{
+           antrian_list();
+           no_antrian();
+           hoper_1();
+           hoper_2();
+        }
+      },
+      error:function()
+      {
+        alert("Sistem Bermasalah");
+      }
+    });
+  }
 </script>

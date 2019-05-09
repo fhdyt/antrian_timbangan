@@ -27,7 +27,11 @@
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Tonase</label>
-        <input type="text" class="form-control tonase" name="tonase" id="tonase" placeholder="Tonase">
+        <div class="input-group">
+          <input type="text" class="form-control tonase" name="tonase" id="tonase" placeholder="Tonase">
+          <span class="input-group-addon" id="basic-addon2">Ton</span>
+        </div>
+
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Hoper Timbangan</label>
@@ -56,6 +60,8 @@ $(".btn_simpan").on('click', function(e) {
           console.log("Sukses")
           antrian_list();
           no_antrian();
+          hoper_1();
+          hoper_2();
           $('#fdata')[0].reset();
          }
 
@@ -93,4 +99,6 @@ function no_antrian()
   });
 }
 $(function(){ no_antrian(); });
+
+
 </script>

@@ -7,7 +7,8 @@ $num_row = mysqli_num_rows($result);
 if(empty($num_row)){
   echo "001";
 }
-else{
+else
+{
 
 while($row = mysqli_fetch_array($result))
 {

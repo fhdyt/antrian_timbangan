@@ -51,10 +51,13 @@
 </nav>
 <div class="container">
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-2">
+    <?php include 'hoper.php' ?>
+  </div>
+  <div class="col-md-3">
     <?php include 'antrian.php' ?>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-6">
     <?php include 'table_antrian.php' ?>
   </div>
 </div>
