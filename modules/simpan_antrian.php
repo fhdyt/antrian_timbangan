@@ -1,4 +1,10 @@
 <?php
+
+ //$log_text="TEstttttttttttt";
+ //$file_log="test.txt";
+ //echo file_put_contents($file_log,$log_text);
+  //END LOG
+
 require_once("../config/db.php");
 
 $nama    = $_POST['nama'];
@@ -22,6 +28,8 @@ $hoper    = $_POST['hoper'];
 
    if( $result==true )
    {
+     file_put_contents("file/".$no_antrian.".txt","-------------PT. PULAU SAMBU------------\n----------------Kuala Enok--------------\n========================================\n------------No.Antrian : ".$no_antrian." -----------\n========================================\nNama       : ".$nama."\nPonton     : ".$jenis_ponton."\nTanggal    : ".$tanggal."\nTonase     : ".$tonase." Ton\nHoper      : ".$hoper."\n========================================\n========================================");
+     shell_exec('/opt/lampp/htdocs/ANTRIAN/modules/file/print.sh');
      echo "ok";
    }
    else

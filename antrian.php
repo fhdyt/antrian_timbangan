@@ -65,7 +65,8 @@ $(".btn_simpan").on('click', function(e) {
       data : form,
       success:function(response)
       {
-         if(response == "ok"){
+         if(response == "ok")
+         {
           console.log("Sukses")
           antrian_list();
           no_antrian();
@@ -112,6 +113,7 @@ $(function(){ no_antrian(); });
 
 function reset_antrian(){
   {
+    console.log("reset")
     $.ajax({
       type : 'POST',
       url:'modules/reset_antrian.php',
