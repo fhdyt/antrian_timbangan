@@ -46,6 +46,7 @@
 
 
 <script>
+$('.nama').focus();
 $('.tanggal').data('date')
 $(".btn_simpan").on('click', function(e) {
 
@@ -65,18 +66,20 @@ $(".btn_simpan").on('click', function(e) {
       data : form,
       success:function(response)
       {
-         if(response == "ok")
+         if(response == "gagal")
          {
-          console.log("Sukses")
-          antrian_list();
-          no_antrian();
-          hoper_1();
-          hoper_2();
-          $('#fdata')[0].reset();
+            alert("Gagal");
          }
 
          else{
-          alert("Gagal Tersimpan")
+
+            antrian_list();
+            no_antrian();
+            hoper_1();
+            hoper_2();
+            $('#fdata')[0].reset();
+            var w = window.open('modules/file/'+response+'.txt'); //Required full file path.
+            w.print();
         }
       },
       error:function()

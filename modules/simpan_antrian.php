@@ -1,10 +1,4 @@
 <?php
-
- //$log_text="TEstttttttttttt";
- //$file_log="test.txt";
- //echo file_put_contents($file_log,$log_text);
-  //END LOG
-
 require_once("../config/db.php");
 
 $nama    = $_POST['nama'];
@@ -28,9 +22,18 @@ $hoper    = $_POST['hoper'];
 
    if( $result==true )
    {
-     file_put_contents("file/".$no_antrian.".txt","-------------PT. PULAU SAMBU------------\n----------------Kuala Enok--------------\n========================================\n------------No.Antrian : ".$no_antrian." -----------\n========================================\nNama       : ".$nama."\nPonton     : ".$jenis_ponton."\nTanggal    : ".$tanggal."\nTonase     : ".$tonase." Ton\nHoper      : ".$hoper."\n========================================\n========================================");
-     shell_exec('/opt/lampp/htdocs/ANTRIAN/modules/file/print.sh');
-     echo "ok";
+     $query  = "SELECT * FROM ANTRIAN_BONGKAR_MATERIAL ORDER BY ID DESC LIMIT 1";
+     $result = mysqli_query($mysqli,$query)or die(mysqli_error());
+     $num_row = mysqli_num_rows($result);
+
+     while($row = mysqli_fetch_array($result))
+     {
+       $tanggal = strtotime($row['TANGGAL']);
+       $id = date(('m-d'), $tanggal);
+
+       file_put_contents("file/".$row['ID'].".txt","-------------PT. PULAU SAMBU------------\n----------------Kuala Enok--------------\n========================================\n---------No.Antrian : ".$id."-".$row['NO_ANTRIAN']." --------\n========================================\nNama       : ".$row['NAMA']."\nPonton     : ".$row['JENIS_PONTON']."\nTanggal    : ".$row['TANGGAL']."\nTonase     : ".$row['TONASE']." Ton\nHoper      : ".$row['HOPER_TIMBANGAN']."\n========================================\n========================================");
+       echo $row['ID'];
+     }
    }
    else
    {
