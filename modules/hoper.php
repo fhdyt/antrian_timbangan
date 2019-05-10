@@ -3,7 +3,7 @@ require_once("../config/db.php");
 error_reporting(0);
 $hoper    = $_POST['HOPER'];
 
-$query  = "SELECT SUM(TONASE) AS TOTAL_TIMBANG FROM ANTRIAN_BONGKAR_MATERIAL WHERE HOPER_TIMBANGAN='".$hoper."' AND TIMBANG_STATUS='N'";
+$query  = "SELECT SUM(TONASE) AS TOTAL_TIMBANG FROM ANTRIAN_BONGKAR_MATERIAL WHERE HOPER_TIMBANGAN='".$hoper."' AND TIMBANG_STATUS='N' AND ANTRIAN_STATUS='0'";
 $result = mysqli_query($mysqli,$query)or die(mysqli_error());
 $num_row = mysqli_num_rows($result);
 if(empty($num_row)){

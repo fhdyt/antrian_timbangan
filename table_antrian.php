@@ -1,4 +1,9 @@
-<table class="table">
+<style>
+.table-condensed{
+font-size: 12px;
+}
+</style>
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>No.</th>

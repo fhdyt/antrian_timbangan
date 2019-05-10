@@ -16,8 +16,8 @@ $hoper    = $_POST['hoper'];
  }
  else
  {
-   $query  = "INSERT INTO ANTRIAN_BONGKAR_MATERIAL (NAMA, JENIS_PONTON, TANGGAL, NO_ANTRIAN, TONASE, HOPER_TIMBANGAN, TIMBANG_STATUS)
-   VALUES ('".$nama."','".$jenis_ponton."','".$tanggal."','".$no_antrian."','".$tonase."','".$hoper."','N')";
+   $query  = "INSERT INTO ANTRIAN_BONGKAR_MATERIAL (NAMA, JENIS_PONTON, TANGGAL, NO_ANTRIAN, TONASE, HOPER_TIMBANGAN, TIMBANG_STATUS, ANTRIAN_STATUS)
+   VALUES ('".$nama."','".$jenis_ponton."','".$tanggal."','".$no_antrian."','".$tonase."','".$hoper."','N', '0')";
    $result = mysqli_query($mysqli,$query) or die(mysqli_error());
 
    if( $result==true )

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Antrian | PT. Pulau Sambu</title>
 
     <!-- Bootstrap -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="container">
+<div class="container-fluid">
 <div class="row">
   <div class="col-md-2">
     <?php include 'hoper.php' ?>
@@ -57,7 +57,7 @@
   <div class="col-md-3">
     <?php include 'antrian.php' ?>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-7">
     <?php include 'table_antrian.php' ?>
   </div>
 </div>
