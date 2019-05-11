@@ -46,10 +46,10 @@
 
 
 <script>
-$('.nama').focus();
-$('.tanggal').data('date')
-$(".btn_simpan").on('click', function(e) {
 
+$('.nama').focus();
+
+function simpan_antrian(){
   var form = $("#fdata").serialize();
   if($('.nama').val() == '')
   {
@@ -78,8 +78,9 @@ $(".btn_simpan").on('click', function(e) {
             hoper_1();
             hoper_2();
             $('#fdata')[0].reset();
-            var w = window.open('modules/file/'+response+'.txt'); //Required full file path.
-            w.print();
+            //window.open('modules/file/'+response+'.txt');
+            $('.nama').focus();
+            
         }
       },
       error:function()
@@ -88,6 +89,17 @@ $(".btn_simpan").on('click', function(e) {
       }
     });
   }
+}
+
+
+$(document).on('keypress',function(e) {
+    if(e.which == 13) {
+        simpan_antrian();
+    }
+});
+$('.tanggal').data('date')
+$(".btn_simpan").on('click', function(e) {
+	simpan_antrian();
 })
 
 
