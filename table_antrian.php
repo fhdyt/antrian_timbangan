@@ -9,9 +9,8 @@ font-size: 12px;
       <th>No.</th>
       <th>No. Antrian</th>
       <th>Nama</th>
-      <th>Jenis Ponton</th>
-      <th>Tanggal</th>
       <th>Tonase</th>
+      <th>Jenis Ponton</th>
       <th>Hoper Timbangan</th>
     </tr>
   </thead>
@@ -59,8 +58,12 @@ font-size: 12px;
          else{
            antrian_list();
            no_antrian();
-           hoper_1();
-           hoper_2();
+           ponton_1_hoper_1()
+           ponton_1_hoper_2()
+           ponton_2_hoper_1()
+           ponton_2_hoper_2()
+           cek_ponton_dan_hoper()
+           $('.nama').focus();
         }
       },
       error:function()

@@ -31,9 +31,8 @@ else {
 
     echo "<td>".$id."-".$row['NO_ANTRIAN']."</td>";
     echo "<td>".$row['NAMA']."</td>";
-    echo "<td>".$row['JENIS_PONTON']."</td>";
-    echo "<td>".$row['TANGGAL']."</td>";
     echo "<td>".$row['TONASE']."</td>";
+    echo "<td>".$row['JENIS_PONTON']."</td>";
     echo "<td>".$row['HOPER_TIMBANGAN']."</td>";
     echo "<td>".$button."</td>";
     echo "</tr>";

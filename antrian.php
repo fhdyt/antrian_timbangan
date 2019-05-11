@@ -5,13 +5,6 @@
         <input type="text" class="form-control nama" name="nama" id="nama" placeholder="Nama" autocomplete="off">
       </div>
       <div class="form-group">
-        <label for="exampleInputEmail1">Jenis Ponton</label>
-        <select class="form-control" class="jenis_ponton" name="jenis_ponton" id="jenis_ponton">
-          <option>Ponton 1</option>
-          <option>Ponton 2</option>
-        </select>
-      </div>
-      <div class="form-group">
         <label for="exampleInputEmail1">Tanggal</label>
         <input type="date" class="form-control tanggal" name="tanggal" id="tanggal" placeholder="Nama" value="<?php echo date("Y-m-d") ?>" readonly>
       </div>
@@ -34,11 +27,22 @@
 
       </div>
       <div class="form-group">
+        <label for="exampleInputEmail1">Jenis Ponton</label>
+        <input type="text" class="form-control jenis_ponton" name="jenis_ponton" id="jenis_ponton" placeholder="" readonly>
+        <!-- <select class="form-control" class="jenis_ponton" name="jenis_ponton" id="jenis_ponton">
+          <option>Pilih</option>
+          <option value="1">Ponton 1</option>
+          <option value="2">Ponton 2</option>
+        </select> -->
+      </div>
+      <div class="form-group">
         <label for="exampleInputEmail1">Hoper Timbangan</label>
-        <select class="form-control" class="form-control hoper" name="hoper" id="hoper">
+        <input type="text" class="form-control hoper" name="hoper" id="hoper" placeholder="" readonly>
+        <!-- <select class="form-control" class="form-control hoper" name="hoper" id="hoper">
+          <option>Pilih</option>
           <option>Hoper 1</option>
           <option>Hoper 2</option>
-        </select>
+        </select> -->
       </div>
 
       <button type="button" class="btn btn-success btn_simpan">Simpan</button>
@@ -48,8 +52,41 @@
 <script>
 
 $('.nama').focus();
+function cek_ponton_dan_hoper(){
+  var ponton_1_hoper_1 = $('.ponton_1_hoper_1').text();
+  var ponton_1_hoper_2 = $('.ponton_1_hoper_2').text();
+  var ponton_2_hoper_1 = $('.ponton_2_hoper_1').text();
+  var ponton_2_hoper_2 = $('.ponton_2_hoper_2').text();
+
+  var terkecil = Math.min(ponton_1_hoper_1, ponton_1_hoper_2, ponton_2_hoper_1, ponton_2_hoper_2);
+  console.log("ponton : "+ponton_1_hoper_2)
+  console.log(terkecil)
+  if (ponton_1_hoper_1 == terkecil){
+    $('.jenis_ponton').val('Ponton 1')
+    $('.hoper').val('Hoper 1')
+  }
+  else if (ponton_1_hoper_2 == terkecil){
+    $('.jenis_ponton').val('Ponton 1')
+    $('.hoper').val('Hoper 2')
+  }
+  else if (ponton_2_hoper_1 == terkecil){
+    $('.jenis_ponton').val('Ponton 2')
+    $('.hoper').val('Hoper 1')
+  }
+  else if (ponton_2_hoper_2 == terkecil){
+    $('.jenis_ponton').val('Ponton 2')
+    $('.hoper').val('Hoper 2')
+  }
+  else{
+    console.log("gagal")
+  }
+}
+$(function(){ cek_ponton_dan_hoper(); });
 
 function simpan_antrian(){
+
+  cek_ponton_dan_hoper();
+
   var form = $("#fdata").serialize();
   if($('.nama').val() == '')
   {
@@ -75,12 +112,14 @@ function simpan_antrian(){
 
             antrian_list();
             no_antrian();
-            hoper_1();
-            hoper_2();
+            ponton_1_hoper_1()
+            ponton_1_hoper_2()
+            ponton_2_hoper_1()
+            ponton_2_hoper_2()
             $('#fdata')[0].reset();
-            //window.open('modules/file/'+response+'.txt');
+
             $('.nama').focus();
-            
+
         }
       },
       error:function()
@@ -90,7 +129,6 @@ function simpan_antrian(){
     });
   }
 }
-
 
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
@@ -128,7 +166,6 @@ $(function(){ no_antrian(); });
 
 function reset_antrian(){
   {
-    console.log("reset")
     $.ajax({
       type : 'POST',
       url:'modules/reset_antrian.php',
@@ -137,12 +174,14 @@ function reset_antrian(){
          if(response == "no_data"){
          }
          else{
-           console.log('SUKSES RESET')
            antrian_list();
            no_antrian();
-           hoper_1();
-           hoper_2();
-           no_antrian();
+           ponton_1_hoper_1()
+           ponton_1_hoper_2()
+           ponton_2_hoper_1()
+           ponton_2_hoper_2()
+           cek_ponton_dan_hoper()
+           $('.nama').focus();
         }
       },
       error:function()
