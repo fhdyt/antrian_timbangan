@@ -31,7 +31,7 @@ $hoper    = $_POST['hoper'];
        $tanggal = strtotime($row['TANGGAL']);
        $id = date(('m-d'), $tanggal);
 
-       file_put_contents("file/".$row['ID'].".txt","\n-------------PT. PULAU SAMBU------------\n----------------Kuala Enok--------------\n========================================\n---------No.Antrian : ".$id."-".$row['NO_ANTRIAN']." --------\n========================================\nNama       : ".$row['NAMA']."\nPonton     : ".$row['JENIS_PONTON']."\nTanggal    : ".$row['TANGGAL']."\nTonase     : ".$row['TONASE']." Ton\nHoper      : ".$row['HOPER_TIMBANGAN']."\n========================================\n========================================".chr(0xff).chr(12));
+       file_put_contents("file/".$row['ID'].".txt","\n-------------PT. PULAU SAMBU------------\n----------------Kuala Enok--------------\n========================================\n-------- No.Antrian : ".$id."-".$row['NO_ANTRIAN']." --------\n========================================\nNama       : ".$row['NAMA']."\nTanggal    : ".$row['TANGGAL']."\nTonase     : ".$row['TONASE']." Ton\nPonton     : ".$row['JENIS_PONTON']."\nHopper     : ".$row['HOPER_TIMBANGAN']."\n========================================\n========================================".chr(0xff).chr(12));
        shell_exec('lpr -l -P EPSON_LQ-310 /var/www/html/antrian_timbangan/modules/file/'.$row['ID'].'.txt');
        echo $row['ID'];
      }

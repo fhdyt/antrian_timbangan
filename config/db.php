@@ -6,7 +6,7 @@
 $databaseHost = 'localhost';
 $databaseName = 'PT_PULAU_SAMBU';
 $databaseUsername = 'root';
-$databasePassword = 'fikri';
+$databasePassword = 'yangitulah';
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 

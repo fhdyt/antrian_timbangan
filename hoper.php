@@ -2,8 +2,8 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Ponton 1</div>
   <ul class="list-group">
-    <li class="list-group-item"><b>Hopper 1</b><p class="ponton_1_hoper_1" style="font-size:170%;"></p></li>
-    <li class="list-group-item"><b>Hopper 2</b><p class="ponton_1_hoper_2" style="font-size:170%;"></p></li>
+    <li class="list-group-item"><b>Hopper 1</b><p class="ponton_1_hoper_1" style="font-size:150%;"></p> Ton</li>
+    <li class="list-group-item"><b>Hopper 2</b><p class="ponton_1_hoper_2" style="font-size:150%;"></p> Ton</li>
   </ul>
 </div>
 
@@ -11,8 +11,8 @@
   <!-- Default panel contents -->
   <div class="panel-heading">Ponton 2</div>
   <ul class="list-group">
-    <li class="list-group-item"><b>Hopper 1</b><p class="ponton_2_hoper_1" style="font-size:170%;"></p></li>
-    <li class="list-group-item"><b>Hopper 2</b><p class="ponton_2_hoper_2" style="font-size:170%;"></p></li>
+    <li class="list-group-item"><b>Hopper 1</b><p class="ponton_2_hoper_1" style="font-size:150%;"></p> Ton</li>
+    <li class="list-group-item"><b>Hopper 2</b><p class="ponton_2_hoper_2" style="font-size:150%;"></p> Ton</li>
   </ul>
 </div>
 <script>

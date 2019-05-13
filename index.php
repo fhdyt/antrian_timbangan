@@ -28,7 +28,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">PT. Pulau Sambu Kuala Enok</a>
+      <a class="navbar-brand" href="#">PT. Pulau Sambu (Kuala Enok)</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
