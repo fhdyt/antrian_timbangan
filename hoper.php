@@ -19,7 +19,7 @@
 //////////////////////////////////////////// PONTON 1 //////////
 function ponton_1_hoper_1()
 {
-  var data = "PONTON=Ponton 1&HOPER=Hoper 1"
+  var data = "PONTON=Ponton 1&HOPER=Hopper 1"
   $.ajax({
     type : 'POST',
     url:'modules/hoper.php',
@@ -43,7 +43,7 @@ $(function(){ ponton_1_hoper_1(); });
 
 function ponton_1_hoper_2()
 {
-  var data = "PONTON=Ponton 1&HOPER=Hoper 2"
+  var data = "PONTON=Ponton 1&HOPER=Hopper 2"
   $.ajax({
     type : 'POST',
     url:'modules/hoper.php',
@@ -68,7 +68,7 @@ $(function(){ ponton_1_hoper_2(); });
 //////////////////////////////////////////// PONTON 2 //////////
 function ponton_2_hoper_1()
 {
-  var data = "PONTON=Ponton 2&HOPER=Hoper 1"
+  var data = "PONTON=Ponton 2&HOPER=Hopper 1"
   $.ajax({
     type : 'POST',
     url:'modules/hoper.php',
@@ -92,7 +92,7 @@ $(function(){ ponton_2_hoper_1(); });
 
 function ponton_2_hoper_2()
 {
-  var data = "PONTON=Ponton 2&HOPER=Hoper 2"
+  var data = "PONTON=Ponton 2&HOPER=Hopper 2"
   $.ajax({
     type : 'POST',
     url:'modules/hoper.php',

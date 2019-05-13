@@ -5,6 +5,14 @@
         <input type="text" class="form-control nama" name="nama" id="nama" placeholder="Nama" autocomplete="off">
       </div>
       <div class="form-group">
+        <label for="exampleInputEmail1">Tonase</label>
+        <div class="input-group">
+          <input type="number" class="form-control tonase" name="tonase" id="tonase" placeholder="Tonase">
+          <span class="input-group-addon" id="basic-addon2">Ton</span>
+        </div>
+
+      </div>
+      <div class="form-group">
         <label for="exampleInputEmail1">Tanggal</label>
         <input type="date" class="form-control tanggal" name="tanggal" id="tanggal" placeholder="Nama" value="<?php echo date("Y-m-d") ?>" readonly>
       </div>
@@ -18,15 +26,7 @@
         </div><!-- /input-group -->
 
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Tonase</label>
-        <div class="input-group">
-          <input type="text" class="form-control tonase" name="tonase" id="tonase" placeholder="Tonase">
-          <span class="input-group-addon" id="basic-addon2">Ton</span>
-        </div>
-
-      </div>
-      <div class="form-group">
+      <div class="form-group" hidden>
         <label for="exampleInputEmail1">Jenis Ponton</label>
         <input type="text" class="form-control jenis_ponton" name="jenis_ponton" id="jenis_ponton" placeholder="" readonly>
         <!-- <select class="form-control" class="jenis_ponton" name="jenis_ponton" id="jenis_ponton">
@@ -35,8 +35,8 @@
           <option value="2">Ponton 2</option>
         </select> -->
       </div>
-      <div class="form-group">
-        <label for="exampleInputEmail1">Hoper Timbangan</label>
+      <div class="form-group" hidden>
+        <label for="exampleInputEmail1">Hopper Timbangan</label>
         <input type="text" class="form-control hoper" name="hoper" id="hoper" placeholder="" readonly>
         <!-- <select class="form-control" class="form-control hoper" name="hoper" id="hoper">
           <option>Pilih</option>
@@ -63,19 +63,19 @@ function cek_ponton_dan_hoper(){
   console.log(terkecil)
   if (ponton_1_hoper_1 == terkecil){
     $('.jenis_ponton').val('Ponton 1')
-    $('.hoper').val('Hoper 1')
+    $('.hoper').val('Hopper 1')
   }
   else if (ponton_1_hoper_2 == terkecil){
     $('.jenis_ponton').val('Ponton 1')
-    $('.hoper').val('Hoper 2')
+    $('.hoper').val('Hopper 2')
   }
   else if (ponton_2_hoper_1 == terkecil){
     $('.jenis_ponton').val('Ponton 2')
-    $('.hoper').val('Hoper 1')
+    $('.hoper').val('Hopper 1')
   }
   else if (ponton_2_hoper_2 == terkecil){
     $('.jenis_ponton').val('Ponton 2')
-    $('.hoper').val('Hoper 2')
+    $('.hoper').val('Hopper 2')
   }
   else{
     console.log("gagal")
@@ -84,17 +84,17 @@ function cek_ponton_dan_hoper(){
 $(function(){ cek_ponton_dan_hoper(); });
 
 function simpan_antrian(){
-
   cek_ponton_dan_hoper();
-
   var form = $("#fdata").serialize();
   if($('.nama').val() == '')
   {
     alert('Nama tidak boleh kosong')
+    $('.btn_simpan').removeAttr('disabled')
   }
   else if($('.tonase').val() == '')
   {
     alert('Tonase tidak boleh kosong')
+    $('.btn_simpan').removeAttr('disabled')
   }
   else {
   $.ajax({
@@ -116,10 +116,10 @@ function simpan_antrian(){
             ponton_1_hoper_2()
             ponton_2_hoper_1()
             ponton_2_hoper_2()
-            $('#fdata')[0].reset();
-
+            $('.nama').val('');
+            $('.tonase').val('');
             $('.nama').focus();
-
+            $('.btn_simpan').removeAttr('disabled')
         }
       },
       error:function()
@@ -132,11 +132,13 @@ function simpan_antrian(){
 
 $(document).on('keypress',function(e) {
     if(e.which == 13) {
+      $('btn_simpan').attr('disabled','disabled')
         simpan_antrian();
     }
 });
 $('.tanggal').data('date')
 $(".btn_simpan").on('click', function(e) {
+  $(this).attr('disabled','disabled')
 	simpan_antrian();
 })
 

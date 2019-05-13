@@ -11,7 +11,7 @@ font-size: 12px;
       <th>Nama</th>
       <th>Tonase</th>
       <th>Jenis Ponton</th>
-      <th>Hoper Timbangan</th>
+      <th>Hopper Timbangan</th>
     </tr>
   </thead>
   <tbody id="zona_data">
@@ -56,6 +56,7 @@ font-size: 12px;
            alert("Gagal");
          }
          else{
+
            antrian_list();
            no_antrian();
            ponton_1_hoper_1()
